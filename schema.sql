@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS meters;
+CREATE TABLE meters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    label TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS meter_data;
+CREATE TABLE meter_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    meter_id INT,
+    time_stamp TIMESTAMP NOT NULL,
+    value INT NOT NULL,
+    FOREIGN KEY(meter_id) REFERENCES meters(id)
+);
